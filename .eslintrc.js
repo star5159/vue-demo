@@ -16,8 +16,9 @@ module.exports = {
     "vue/script-indent": ["error", 2, {  // script标签缩进设置
       "baseIndent": 1,
       "switchCase": 0,
-      "ignores": []
-    }]
+      "ignores": [],
+    }],
+    "no-useless-return": 0
   },
   overrides: [
     {

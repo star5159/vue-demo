@@ -69,7 +69,6 @@
         this.$refs.loginRef.validate(async valid => {
           if (!valid) return
           const { data: res } = await this.$http.post('login', this.loginForm)
-          console.log(res)
           if (res.meta.status !== 200) {
             return this.$message({
               showClose: true,
