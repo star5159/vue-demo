@@ -18,6 +18,22 @@ html, body, #app {
     font-size: 18px;
 }
 
+.el-table td, .el-table th {
+    text-align: center;
+}
+
 .el-pagination {
     margin-top: 15px;
+}
+
+.el-steps {
+    margin: 15px;
+}
+
+.el-cascader-panel {
+    height: 300px;
+}
+
+.ql-editor {
+    min-height: 350px;
 }

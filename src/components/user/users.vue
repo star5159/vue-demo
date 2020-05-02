@@ -46,12 +46,14 @@
         </el-table-column>
       </el-table>
       <!--分页-->
-      <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-                     :current-page="queryInfo.pagenum"
-                     :page-sizes="[1, 2, 5, 10]" :page-size="queryInfo.pagesize"
-                     layout="total, sizes, prev, pager, next, jumper"
-                     :total="total">
-      </el-pagination>
+      <div style="text-align: center">
+        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                       :current-page="queryInfo.pagenum"
+                       :page-sizes="[1, 2, 5, 10]" :page-size="queryInfo.pagesize"
+                       layout="total, sizes, prev, pager, next, jumper"
+                       :total="total">
+        </el-pagination>
+      </div>
     </el-card>
     <!--添加用户对话框-->
     <el-dialog title="添加用户" :visible.sync="addDialogVisible" width="35%" @close="addDialogClose">
@@ -244,9 +246,8 @@
       },
       updateUser () { // 更新编辑的用户信息
         this.$refs.modifyUserRef.validate(async valid => {
-          if (!valid) return // 如果预验证规则不通过，直接返回
+          if (!valid) return this.$message.error('请将必填信息补充完整')// 如果预验证规则不通过，直接返回
           const { data: res } = await this.$http.put('users/' + this.modifyUserForm.id, this.modifyUserForm)
-          console.log(res)
           if (res.meta.status !== 200) return this.$message.error('更新用户信息失败！')
           this.$message.success('更新用户信息成功')
           this.modifyDialogVisible = false

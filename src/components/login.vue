@@ -18,7 +18,7 @@
         <!--按钮-->
         <el-form-item class="bts">
           <el-button type="primary" round @click="login">登录</el-button>
-          <el-button type="info" round>注册</el-button>
+          <el-button type="info" round @click="loginClear">重置</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -84,6 +84,9 @@
           window.sessionStorage.setItem('token', res.data.token)
           this.$router.push('/home')
         })
+      },
+      loginClear () {
+        this.$refs.loginRef.resetFields() // 清空
       }
     }
   }
